@@ -6,6 +6,11 @@ func _ready():
 const MAX_SPEED = 50
 
 var velocity
+#To animate player movement
+onready var animationPlayer = $AnimationPlayer # $ sign is to call node inside same scence
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+	
 
 func _physics_process(delta): # delta is the time between frames. Like if you get 60 fps, its 1/60 second.
 	var input_vel = Vector2.ZERO
@@ -21,8 +26,12 @@ func _physics_process(delta): # delta is the time between frames. Like if you ge
 	# so we use this
 	
 	if input_vel != Vector2.ZERO:
+		animationTree.set("parameters/Idle/blend_position", input_vel) #for animations from AnimationTree
+		animationTree.set("parameters/Run/blend_position", input_vel)
+		animationState.travel("Run")
 		velocity = input_vel
 	else:
+		animationState.travel("Idle")
 		velocity = Vector2.ZERO
 	
 	move_and_slide(velocity * MAX_SPEED)
