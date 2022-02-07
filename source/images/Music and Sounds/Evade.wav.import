@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Evade.wav-137ca0c5f956115af65083b4691f47bd.sample"
+
+[deps]
+
+source_file="res://source/images/Music and Sounds/Evade.wav"
+dest_files=[ "res://.import/Evade.wav-137ca0c5f956115af65083b4691f47bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
