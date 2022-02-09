@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://source/images/World/GrassBackground.png" type="Texture" id=1]
+[ext_resource path="res://source/images/Player/player.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 127, 79 )
+rotation = -1.57079
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 37, -349, 232, 390 )
+
+[node name="player" parent="." groups=["Player"] instance=ExtResource( 2 )]
+position = Vector2( 60, 143 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+current = true
+smoothing_enabled = true
+smoothing_speed = 8.0

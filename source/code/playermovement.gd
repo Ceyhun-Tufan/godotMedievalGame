@@ -5,6 +5,7 @@ func _ready():
 
 const MAX_SPEED = 50
 
+
 var velocity
 #To animate player movement
 onready var animationPlayer = $AnimationPlayer # $ sign is to call node inside same scence
@@ -36,3 +37,10 @@ func _physics_process(delta): # delta is the time between frames. Like if you ge
 	
 	move_and_slide(velocity * MAX_SPEED)
 	#move and slide method is literally for sliding.	
+
+
+
+
+
+func _on_HomeAlex_body_entered(body):
+	get_tree().change_scene("res://HomeAlexInside.tscn")
