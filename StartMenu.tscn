@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://source/Fonts/ChiKareGo2.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,9 @@ size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -30,9 +33,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 124.0
-margin_top = 50.0
+margin_top = 37.0
 margin_right = 196.0
-margin_bottom = 130.0
+margin_bottom = 142.0
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 72.0
@@ -48,12 +51,20 @@ margin_bottom = 55.0
 custom_fonts/font = SubResource( 2 )
 text = "Start"
 
-[node name="QuitGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 59.0
 margin_right = 72.0
 margin_bottom = 80.0
+custom_fonts/font = SubResource( 4 )
+text = "Credits"
+
+[node name="QuitGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 72.0
+margin_bottom = 105.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
