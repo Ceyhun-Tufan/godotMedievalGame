@@ -10,3 +10,7 @@ func _on_StartGameButton_pressed():
 #Gets signal from button Quit
 func _on_QuitGameButton_pressed():
 	get_tree().quit()#quit
+
+
+func _on_CreditsButton_pressed():
+	get_tree().change_scene("res://CreditsScene.tscn")

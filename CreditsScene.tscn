@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://source/Fonts/ChiKareGo2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://CreditsScene.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[node name="CreditsScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 116.0
+margin_top = 51.0
+margin_right = 203.0
+margin_bottom = 129.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 87.0
+margin_bottom = 15.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 87.0
+margin_bottom = 34.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Fabian#5466"
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 87.0
+margin_bottom = 53.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "jeez#4191"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 57.0
+margin_right = 87.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 4 )
+text = "Go Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
