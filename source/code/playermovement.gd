@@ -2,11 +2,15 @@ extends KinematicBody2D
 
 func _ready():
 	print("Game Started") 
+	
 
 const MAX_SPEED = 50
 
 
 var velocity
+
+
+
 #To animate player movement
 onready var animationPlayer = $AnimationPlayer # $ sign is to call node inside same scence
 onready var animationTree = $AnimationTree
@@ -14,6 +18,11 @@ onready var animationState = animationTree.get("parameters/playback")
 	
 
 func _physics_process(delta): # delta is the time between frames. Like if you get 60 fps, its 1/60 second.
+	
+	
+	
+	
+	
 	var input_vel = Vector2.ZERO
 	
 	# vector2 is basicly an array which has x and y ( coordinate ) 
@@ -42,5 +51,8 @@ func _physics_process(delta): # delta is the time between frames. Like if you ge
 
 
 
-func _on_HomeAlex_body_entered(body):
-	get_tree().change_scene("res://HomeAlexInside.tscn")
+
+	
+	
+
+

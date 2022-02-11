@@ -1,15 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://source/images/World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/images/Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/images/World/Grass.png" type="Texture" id=3]
 [ext_resource path="res://source/images/World/GrassBackground.png" type="Texture" id=4]
 [ext_resource path="res://source/images/World/home1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://HomeAlex.gd" type="Script" id=6]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 0.75
-height = 4.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 2 )
 
 [node name="World" type="Node2D"]
 
@@ -25,7 +23,7 @@ __meta__ = {
 [node name="YSort" type="YSort" parent="."]
 
 [node name="player" parent="YSort" groups=["Player"] instance=ExtResource( 2 )]
-position = Vector2( 63, 136 )
+position = Vector2( 57, 135 )
 collision_layer = 3
 collision_mask = 3
 
@@ -37,8 +35,8 @@ smoothing_speed = 8.0
 [node name="Bush" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 152, 200 )
 
-[node name="StaticBody2D" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 111, -28 )
+[node name="HouseFelix" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 111, -29 )
 
 [node name="Bush2" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 355, 65 )
@@ -47,13 +45,8 @@ position = Vector2( 355, 65 )
 position = Vector2( 28, 119 )
 texture = ExtResource( 3 )
 
-[node name="HomeAlex" type="Area2D" parent="."]
-position = Vector2( -1, 2 )
-script = ExtResource( 6 )
+[node name="Home_Felix_Area2D" type="Area2D" parent="."]
 
-[node name="HomeAlesColl" type="CollisionShape2D" parent="HomeAlex"]
-position = Vector2( 112, 95 )
-rotation = -1.57079
+[node name="Home_Felix_Coll" type="CollisionShape2D" parent="Home_Felix_Area2D"]
+position = Vector2( 111, 98 )
 shape = SubResource( 1 )
-
-[connection signal="body_entered" from="HomeAlex" to="YSort/player" method="_on_HomeAlex_body_entered"]
