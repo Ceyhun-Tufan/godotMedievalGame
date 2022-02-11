@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://source/images/World/woodfloor3.png" type="Texture" id=1]
 [ext_resource path="res://source/images/Player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://House_Felix/House_Felix_Inside.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 10.25 )
 
 [node name="House_Felix" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -32,3 +34,6 @@ smoothing_speed = 8.0
 [node name="House_Felix_Leave_Coll" type="CollisionShape2D" parent="House_Felix_Leave"]
 position = Vector2( 55, 214 )
 shape = SubResource( 1 )
+
+[connection signal="body_entered" from="House_Felix_Leave" to="." method="_on_House_Felix_Leave_body_entered"]
+[connection signal="body_exited" from="House_Felix_Leave" to="." method="_on_House_Felix_Leave_body_exited"]

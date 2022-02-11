@@ -1,16 +1,25 @@
 extends KinematicBody2D
 
+
+
+
+var house
+
+func set_house(new_house):
+	house = new_house
+
+
+
 func _ready():
-	print("Game Started") 
+	set_house(null)
 	
+func _unhandled_input(event):
+	if event is InputEventKey and event.is_action_pressed("interect") and house != null:
+		house.enter()
+
 
 const MAX_SPEED = 50
-
-
 var velocity
-
-
-
 #To animate player movement
 onready var animationPlayer = $AnimationPlayer # $ sign is to call node inside same scence
 onready var animationTree = $AnimationTree
@@ -18,10 +27,7 @@ onready var animationState = animationTree.get("parameters/playback")
 	
 
 func _physics_process(delta): # delta is the time between frames. Like if you get 60 fps, its 1/60 second.
-	
-	
-	
-	
+
 	
 	var input_vel = Vector2.ZERO
 	
@@ -49,10 +55,7 @@ func _physics_process(delta): # delta is the time between frames. Like if you ge
 
 
 
-
-
-
+func _on_Home_Felix_Area2D_body_entered(body):
 	
+	get_tree().change_scene("res://House_Felix/House_Felix_Inside.tscn")
 	
-
-
