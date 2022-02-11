@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://source/images/World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/images/Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/images/World/Grass.png" type="Texture" id=3]
 [ext_resource path="res://source/images/World/GrassBackground.png" type="Texture" id=4]
 [ext_resource path="res://source/images/World/home1.tscn" type="PackedScene" id=5]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 2 )
 
 [node name="World" type="Node2D"]
 
@@ -44,9 +41,3 @@ position = Vector2( 355, 65 )
 [node name="Grass" type="Sprite" parent="YSort"]
 position = Vector2( 28, 119 )
 texture = ExtResource( 3 )
-
-[node name="Home_Felix_Area2D" type="Area2D" parent="."]
-
-[node name="Home_Felix_Coll" type="CollisionShape2D" parent="Home_Felix_Area2D"]
-position = Vector2( 111, 98 )
-shape = SubResource( 1 )
