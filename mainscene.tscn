@@ -1,10 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://source/images/World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/images/Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/images/World/Grass.png" type="Texture" id=3]
 [ext_resource path="res://source/images/World/GrassBackground.png" type="Texture" id=4]
 [ext_resource path="res://source/images/World/home1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://source/images/World/Lamp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Day_cycle.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Day_cycle"
+length = 24.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 7, 10, 12, 15, 18, 21, 23.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.94902, 0.878431, 0.733333, 1 ), Color( 0.760784, 0.686275, 0.529412, 1 ), Color( 0.529412, 0.572549, 0.760784, 1 ), Color( 0.207843, 0.219608, 0.27451, 1 ), Color( 0.121569, 0.133333, 0.2, 1 ), Color( 0.870588, 0.741176, 0.490196, 1 ), Color( 0.898039, 0.862745, 0.792157, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="World" type="Node2D"]
 
@@ -41,3 +74,16 @@ position = Vector2( 355, 65 )
 [node name="Grass" type="Sprite" parent="YSort"]
 position = Vector2( 28, 119 )
 texture = ExtResource( 3 )
+
+[node name="Lamp" parent="." instance=ExtResource( 6 )]
+position = Vector2( 54, 155 )
+
+[node name="Lamp" parent="Lamp" instance=ExtResource( 6 )]
+position = Vector2( 126, -8 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
+anims/Day_cycle = SubResource( 1 )
+anims/RESET = SubResource( 2 )
