@@ -11,10 +11,12 @@ func set_house(new_house):
 
 
 func _ready():
+	global_position = Global.player_pos ## we added Global.gd to our autoload function in project->settings->autoload
 	set_house(null)
 	
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_action_pressed("interect") and house != null:
+		Global.player_pos = global_position
 		house.enter()
 
 

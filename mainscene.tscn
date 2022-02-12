@@ -42,13 +42,11 @@ tracks/0/keys = {
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
+position = Vector2( -106, -43 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( -136.004, -42.1026, 498.966, 321.252 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -76,12 +74,13 @@ position = Vector2( 28, 119 )
 texture = ExtResource( 3 )
 
 [node name="Lamp" parent="." instance=ExtResource( 6 )]
-position = Vector2( 54, 155 )
+position = Vector2( 45, 149 )
 
 [node name="Lamp" parent="Lamp" instance=ExtResource( 6 )]
 position = Vector2( 126, -8 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( 248, 143 )
 script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
