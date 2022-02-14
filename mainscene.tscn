@@ -10,7 +10,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Day_cycle"
-length = 24.0
+length = 900.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -18,7 +19,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5, 7, 10, 12, 15, 18, 21, 23.9 ),
+"times": PoolRealArray( 0, 11.9, 114.4, 216, 324.6, 422.2, 547.4, 754.2, 899.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.94902, 0.878431, 0.733333, 1 ), Color( 0.760784, 0.686275, 0.529412, 1 ), Color( 0.529412, 0.572549, 0.760784, 1 ), Color( 0.207843, 0.219608, 0.27451, 1 ), Color( 0.121569, 0.133333, 0.2, 1 ), Color( 0.870588, 0.741176, 0.490196, 1 ), Color( 0.898039, 0.862745, 0.792157, 1 ) ]
@@ -84,5 +85,6 @@ position = Vector2( 248, 143 )
 script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
+autoplay = "Day_cycle"
 anims/Day_cycle = SubResource( 1 )
 anims/RESET = SubResource( 2 )
